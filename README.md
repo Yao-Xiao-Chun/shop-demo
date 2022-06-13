@@ -18,44 +18,49 @@
  * 工程结构
 ```
 shop-demo
+|
+|
+└─── apps
+|      │
+|      └─── app
+|      |     └─── api
+|      └─── cart
+|      |     └─── admin
+|      |     └─── rmq
+|      |     └─── rpc   
+|      |
+|      └─── order
+|      |     └─── admin
+|      |     └─── rmq
+|      |     └─── rpc  
+|      |
+|      └─── pay
+|      |     └─── admin
+|      |     └─── rmq
+|      |     └─── rpc  
+|      |
+|      └─── product
+|      |     └─── admin
+|      |     └─── rmq
+|      |     └─── rpc  
+|      |
+|      └─── recommend
+|      |     └─── rpc  
+|      |
+|      └─── reply
+|      |     └─── admin
+|      |     └─── rmq
+|      |     └─── rpc  
+|      |
+|      └─── user
+|      |     └─── admin
+|      |     └─── rmq
+|      |     └─── rpc        
+└─── pkg
+|   go.mod
 │   README.md
 │   LICENSE    
-│
-└─── app
-|
-|      └─── api
-└─── cart
-|     └─── admin
-|     └─── rmq
-|     └─── rpc   
-|
-└─── order
-|     └─── admin
-|     └─── rmq
-|     └─── rpc  
-|
-└─── pay
-|     └─── admin
-|     └─── rmq
-|     └─── rpc  
-|
-└─── product
-|     └─── admin
-|     └─── rmq
-|     └─── rpc  
-|
-└─── recommend
-|     └─── rpc  
-|
-└─── reply
-|     └─── admin
-|     └─── rmq
-|     └─── rpc  
-|
-└─── user
-|     └─── admin
-|     └─── rmq
-|     └─── rpc        
 
 ```
 
+* 代码初始化
