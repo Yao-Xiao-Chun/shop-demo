@@ -133,6 +133,17 @@ type (
 		Product  *Product   `json:"product"`
 		Comments []*Comment `json:"comments"`
 	}
+
+	LoginRequest {
+		Account  string `json:"account"`
+		Password string `json:"password"`
+	}
+
+	LoginResponse {
+		Code    int    `json:"code"`
+		Token   string `json:"token"`
+		Message string `json:"message"`
+	}
 )
 //首页
 service api-api {
@@ -167,4 +178,12 @@ service api-api {
 	@doc "商品详情"
 	@handler ProductDetailHandler
 	get /v1/product/detail (ProductDetailRequest) returns (ProductDetailResponse)
+	
+	@doc "登录"
+	@handler LoginApiHandler
+	post /v1/login (LoginRequest) returns (LoginResponse)
+
+    @doc "登出"
+    @handler LoginApiOutHandler
+    get /v1/login/out (LoginRequest) returns (LoginResponse)
 }

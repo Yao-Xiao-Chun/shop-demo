@@ -1,0 +1,19 @@
+syntax = "proto3";
+package login;
+option go_package="./login";
+
+message LoginRequest{
+  string account = 1;
+  string password = 2;
+}
+message LoginResponse{
+  int64 code = 1;
+  string message = 2;
+  string token =3;
+}
+service Login{
+  //登录
+  rpc doLogin(LoginRequest) returns(LoginResponse);
+  //登出
+  rpc loginOut(LoginRequest) returns(LoginRequest);
+}

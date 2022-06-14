@@ -133,3 +133,14 @@ type ProductDetailResponse struct {
 	Product  *Product   `json:"product"`
 	Comments []*Comment `json:"comments"`
 }
+
+type LoginRequest struct {
+	Account  string `json:"account"`
+	Password string `json:"password"`
+}
+
+type LoginResponse struct {
+	Code    int    `json:"code"`
+	Token   string `json:"token"`
+	Message string `json:"message"`
+}

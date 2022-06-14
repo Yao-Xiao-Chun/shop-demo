@@ -11,3 +11,15 @@ ProductRPC:
     Hosts:
       - 127.0.0.1:2379
     Key: product.rpc
+LoginRPC:
+  Etcd:
+    Hosts:
+      - 127.0.0.1:2379
+    Key: login.rpc
+#日志配置
+LogConf:
+  ServiceName: api-api
+  Mode: file
+  Path: logs
+  Level: info
+  KeepDays: 2
