@@ -15,6 +15,6 @@ func NewServiceContext(c config.Config) *ServiceContext {
 	conn := sqlx.NewMysql(c.Mysql.DataSource)
 	return &ServiceContext{
 		Config:    c,
-		UserModel: model.NewUserModel(conn, nil),
+		UserModel: model.NewUserModel(conn, c.CacheRedis), //如果使用了redis不可以传空
 	}
 }
