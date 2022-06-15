@@ -15,6 +15,7 @@
     5. 账号服务(user)-用户信息、等级、封禁、地址管理
     6. 推荐服务(recommend)-首页商品推荐
     7. 评论服务(reply)-商品的评论功能、评论的回复功能
+    8. 登陆服务(login)-生成登陆和退出、日志和token的生成
  * 工程结构
 ```
 shop-demo
@@ -56,6 +57,10 @@ shop-demo
 |      |     └─── admin
 |      |     └─── rmq
 |      |     └─── rpc        
+|      └─── login
+|      |     └─── admin
+|      |     └─── rmq
+|      |     └─── rpc 
 └─── pkg
 |   go.mod
 │   README.md
