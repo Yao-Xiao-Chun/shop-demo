@@ -11,11 +11,13 @@ ProductRPC:
     Hosts:
       - 127.0.0.1:2379
     Key: product.rpc
+#登录rpc 实行弱依赖
 LoginRPC:
   Etcd:
     Hosts:
       - 127.0.0.1:2379
     Key: login.rpc
+  NonBlock: true
 #日志配置
 LogConf:
   ServiceName: api-api

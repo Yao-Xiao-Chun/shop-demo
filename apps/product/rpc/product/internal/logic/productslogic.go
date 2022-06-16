@@ -3,6 +3,7 @@ package logic
 import (
 	"context"
 	"github.com/zeromicro/go-zero/core/mr"
+	"shop-demo/apps/product/model"
 	"strings"
 
 	"shop-demo/apps/product/rpc/product/internal/svc"
@@ -25,9 +26,10 @@ func NewProductsLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Products
 	}
 }
 
+// Products 获取商品列表
 func (l *ProductsLogic) Products(in *product.ProductRequest) (*product.ProductResponse, error) {
 
-	products := make(map[int64]*product.ProductItem)
+	products := make([]*product.ProductItem, 0) //不支持使用map int64的骚操作
 	pdis := strings.Split(in.ProductIds, ",")
 	ps, err := mr.MapReduce(func(source chan<- interface{}) {
 		for _, pid := range pdis {
@@ -52,10 +54,10 @@ func (l *ProductsLogic) Products(in *product.ProductRequest) (*product.ProductRe
 		return nil, err
 	}
 	for _, p := range ps.([]*model.Product) {
-		products[p.Id] = &product.ProductItem{
+		products = append(products, &product.ProductItem{
 			ProductId: p.Id,
 			Name:      p.Name,
-		}
+		})
 	}
 	return &product.ProductResponse{Products: products}, nil
 }

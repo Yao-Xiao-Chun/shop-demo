@@ -4,3 +4,10 @@ Etcd:
   Hosts:
   - 127.0.0.1:2379
   Key: product.rpc
+#数据库链接
+Mysql:
+  DataSource: root:root@tcp(127.0.0.1:3306)/product?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
+#缓存地址
+CacheRedis:
+  - Host: 127.0.0.1:6379
+    Pass:
