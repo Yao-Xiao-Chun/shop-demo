@@ -4,6 +4,7 @@ import (
 	"context"
 	"github.com/zeromicro/go-zero/core/mr"
 	"shop-demo/apps/product/model"
+	"strconv"
 	"strings"
 
 	"shop-demo/apps/product/rpc/product/internal/svc"
@@ -30,14 +31,19 @@ func NewProductsLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Products
 func (l *ProductsLogic) Products(in *product.ProductRequest) (*product.ProductResponse, error) {
 
 	products := make([]*product.ProductItem, 0) //不支持使用map int64的骚操作
+
 	pdis := strings.Split(in.ProductIds, ",")
+
 	ps, err := mr.MapReduce(func(source chan<- interface{}) {
 		for _, pid := range pdis {
 			source <- pid
 		}
 	}, func(item interface{}, writer mr.Writer, cancel func(error)) {
-		pid := item.(int64)
-		p, err := l.svcCtx.ProductModel.FindOne(l.ctx, pid)
+
+		v := item.(string)
+		atoi, _ := strconv.Atoi(v)
+
+		p, err := l.svcCtx.ProductModel.FindOne(l.ctx, int64(atoi))
 		if err != nil {
 			cancel(err)
 			return
@@ -51,8 +57,12 @@ func (l *ProductsLogic) Products(in *product.ProductRequest) (*product.ProductRe
 		writer.Write(r)
 	})
 	if err != nil {
+
+		logx.ErrorStack(err)
+
 		return nil, err
 	}
+
 	for _, p := range ps.([]*model.Product) {
 		products = append(products, &product.ProductItem{
 			ProductId: p.Id,

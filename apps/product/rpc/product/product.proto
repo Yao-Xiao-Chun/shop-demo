@@ -3,14 +3,15 @@ syntax = "proto3";
 package product;
 option go_package="./product";
 
-service Product {
-  rpc Products(ProductRequest) returns(ProductResponse);
-}
 
+
+
+// 列表查询接口
 message ProductRequest {
   string product_ids = 1;
 }
 
+//商品列表返回值
 message ProductResponse {
   repeated ProductItem products = 1;
 }
@@ -20,4 +21,25 @@ message ProductItem {
   string name = 2;
   string description = 3;
   string image_url = 4;
+}
+// 商品新增
+message ProductDataRequest {
+  int64 cate_id = 1;
+  string name = 2;
+  string sub_title =3;
+  string images = 4;
+  float price =5;
+  int64 stock =6;
+  int64 status =7;
+}
+message ProductDataResponse{
+  bool res =1;
+  int64 goods_id =2;
+}
+
+//详情
+service Product {
+  rpc Products(ProductRequest) returns(ProductResponse);//列表
+
+  rpc CreateProduct(ProductDataRequest) returns(ProductDataResponse);//创建
 }

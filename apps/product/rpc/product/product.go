@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/zeromicro/go-zero/core/logx"
 	"shop-demo/apps/product/rpc/product/internal/config"
 	"shop-demo/apps/product/rpc/product/internal/server"
 	"shop-demo/apps/product/rpc/product/internal/svc"
@@ -33,8 +34,8 @@ func main() {
 		}
 	})
 	defer s.Stop()
-
-	//logx.DisableStat() 可以用来关闭 日志记录
+	fmt.Println(c.Mode)
+	logx.DisableStat() //可以用来关闭 日志记录
 	//logx.SetLevel(logx.ErrorLevel)// 日志记录等级
 
 	fmt.Printf("Starting rpc server at %s...\n", c.ListenOn)

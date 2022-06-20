@@ -69,3 +69,6 @@ shop-demo
 ```
 
 * 代码初始化
+* grpc调试工具
+    1. 官方推荐 使用grpcurl工具进行
+    2. BloomRPC GUI工具 [下载地址](https://github.com/bloomrpc/bloomrpc)
