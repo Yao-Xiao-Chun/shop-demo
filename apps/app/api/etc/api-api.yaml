@@ -25,3 +25,7 @@ LogConf:
   Path: logs
   Level: info
   KeepDays: 2
+#Token生成规律
+Auth:
+  AccessSecret: ujli1sasd
+  AccessExpire:  3600

@@ -12,7 +12,9 @@ import (
 
 type (
 	Login interface {
+		// 登录
 		DoLogin(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
+		// 登出
 		LoginOut(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginRequest, error)
 	}
 
@@ -27,11 +29,13 @@ func NewLogin(cli zrpc.Client) Login {
 	}
 }
 
+// 登录
 func (m *defaultLogin) DoLogin(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error) {
 	client := NewLoginClient(m.cli.Conn())
 	return client.DoLogin(ctx, in, opts...)
 }
 
+// 登出
 func (m *defaultLogin) LoginOut(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginRequest, error) {
 	client := NewLoginClient(m.cli.Conn())
 	return client.LoginOut(ctx, in, opts...)

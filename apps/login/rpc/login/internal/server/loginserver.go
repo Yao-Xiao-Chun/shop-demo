@@ -22,11 +22,13 @@ func NewLoginServer(svcCtx *svc.ServiceContext) *LoginServer {
 	}
 }
 
+// 登录
 func (s *LoginServer) DoLogin(ctx context.Context, in *login.LoginRequest) (*login.LoginResponse, error) {
 	l := logic.NewDoLoginLogic(ctx, s.svcCtx)
 	return l.DoLogin(in)
 }
 
+// 登出
 func (s *LoginServer) LoginOut(ctx context.Context, in *login.LoginRequest) (*login.LoginRequest, error) {
 	l := logic.NewLoginOutLogic(ctx, s.svcCtx)
 	return l.LoginOut(in)

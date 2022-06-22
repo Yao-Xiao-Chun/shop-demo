@@ -1,0 +1,15 @@
+Name: search.rpc
+ListenOn: 127.0.0.1:8080
+Mode: dev
+#公共配置
+Etcd:
+  Hosts:
+  - 127.0.0.1:2379
+  Key: search.rpc
+#搜索引擎
+MeiliSearch:
+  Host: 150.158.198.220:7700
+  MasterKey:
+
+SearchConfig:
+  Product: product_admin_list

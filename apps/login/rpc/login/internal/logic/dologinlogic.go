@@ -43,6 +43,7 @@ func (l *DoLoginLogic) DoLogin(in *login.LoginRequest) (*login.LoginResponse, er
 	return &login.LoginResponse{
 		Code:    1,
 		Message: "获取成功",
-		Token:   "asdfjhk1",
+		Token:   "",
+		UserId:  res.Id, //返回数据id
 	}, nil
 }

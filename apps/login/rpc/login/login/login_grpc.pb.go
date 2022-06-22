@@ -22,7 +22,9 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type LoginClient interface {
+	//登录
 	DoLogin(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
+	//登出
 	LoginOut(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginRequest, error)
 }
 
@@ -56,7 +58,9 @@ func (c *loginClient) LoginOut(ctx context.Context, in *LoginRequest, opts ...gr
 // All implementations must embed UnimplementedLoginServer
 // for forward compatibility
 type LoginServer interface {
+	//登录
 	DoLogin(context.Context, *LoginRequest) (*LoginResponse, error)
+	//登出
 	LoginOut(context.Context, *LoginRequest) (*LoginRequest, error)
 	mustEmbedUnimplementedLoginServer()
 }

@@ -10,6 +10,7 @@ message LoginResponse{
   int64 code = 1;
   string message = 2;
   string token =3;
+  int64 user_id =4;
 }
 service Login{
   //登录

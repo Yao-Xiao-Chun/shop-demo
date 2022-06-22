@@ -12,4 +12,8 @@ type Config struct {
 	ProductRPC zrpc.RpcClientConf
 	LogConf    logx.LogConf
 	LoginRPC   zrpc.RpcClientConf
+	Auth       struct {
+		AccessSecret string
+		AccessExpire int64
+	}
 }

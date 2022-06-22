@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package search;
+option go_package="./search";
+
+message ProductSearchRequest{
+  string keyword = 1;
+  int64 page = 2;
+  int64 size =3;
+}
+
+message ProductSearchResponse{
+  map<int64,ProductItem> list = 1;
+}
+
+message ProductItem {
+  int64 product_id = 1;
+  string name = 2;
+  string description = 3;
+  string image_url = 4;
+}
+
+service Search{
+
+  rpc SearchKey(ProductSearchRequest) returns(ProductSearchResponse);
+}
