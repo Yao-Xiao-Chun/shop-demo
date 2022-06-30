@@ -12,4 +12,9 @@ type Config struct {
 	}
 	CacheRedis cache.CacheConf
 	Mode       string
+	Limit      struct {
+		Seconds int
+		Total   int
+		Quota   int
+	}
 }

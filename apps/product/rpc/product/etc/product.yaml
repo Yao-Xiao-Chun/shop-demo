@@ -10,5 +10,10 @@ Mysql:
   DataSource: root:root@tcp(127.0.0.1:3306)/product?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
 #缓存地址
 CacheRedis:
-  - Host: 127.0.0.1:6379
-    Pass:
+  Host: 127.0.0.1:6379
+  Pass:
+#接口限流速率
+Limit:
+  Seconds: 1
+  Total: 100
+  Quota: 5
