@@ -20,7 +20,7 @@ type Options struct {
 
 type Batcher struct {
 	opts     Options
-	Do       func(ctx context.Context, val map[string][]interface{})
+	Do       func(ctx context.Context, val map[string][]interface{}) //满足聚合条件就执行do方法，其中val 参数为聚合后的数据
 	Sharding func(key string) int
 	chans    []chan *msg
 	wait     sync.WaitGroup

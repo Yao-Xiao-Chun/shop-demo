@@ -22,5 +22,6 @@ message ProductItem {
 
 service Search{
 
-  rpc SearchKey(ProductSearchRequest) returns(ProductSearchResponse);
+
+  rpc SearchKey(ProductSearchRequest) returns(ProductSearchResponse);//可以使用这种方式用dtm xxx_grpc.pb.go 中的配置文件是否存在invoke
 }
