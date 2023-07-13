@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-07-13T13:04:17.699Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/116.0" etag="MwC4-A6FBgBw-zAh5Sim" version="21.6.2" type="github">
+<mxfile host="app.diagrams.net" modified="2023-07-13T13:19:48.163Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/116.0" etag="NGmJmdEOGbV-jCT19ggB" version="21.6.2" type="github">
   <diagram name="第 1 页" id="QJW1rj8MkvVtqN3oxkuM">
     <mxGraphModel dx="1194" dy="764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -141,6 +141,18 @@
         </mxCell>
         <mxCell id="TLOHfjOfFBMhG84wIY92-71" value="全局队列" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="410" y="345" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="xO9EF9BSrkVgVOb-Us5f-2" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="670" y="780" as="sourcePoint" />
+            <mxPoint x="570" y="780" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xO9EF9BSrkVgVOb-Us5f-3" value="processor处理器" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="660" y="765" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="xO9EF9BSrkVgVOb-Us5f-6" value="&lt;h1&gt;P的本地队列&lt;br&gt;&lt;/h1&gt;&lt;p&gt;1.g优先插入本地P里面，p最多存放256个；&lt;/p&gt;&lt;p&gt;2.如果本地队列放满，那么会把本地的一半g，放入到全局队列中&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="590" y="510" width="190" height="120" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
